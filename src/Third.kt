@@ -51,7 +51,11 @@ fun updateH (name : String, color : String, age : Int, weight: Float) {
     while(now!= lON?.last && now!!.name != name){
         now = now.next
     }
-    if (now!!.name != name){
+    if (now == null){
+        println("Update: not found")
+        return
+    }
+    if (now.name != name){
         println("Update: not found")
     }else {
         val newCat = CatH(color, age, weight)
@@ -76,7 +80,6 @@ fun createH(name: String, color: String, age: Int, weight: Float){
     val num = hashFun(name)
     val lON = hashTable[num]
     val cat = CatH(color, age, weight)
-    println(num)
     if (lON!!.first == null) {
         val node = NodeH(name, cat, null, null)
         lON.first = node

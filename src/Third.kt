@@ -106,7 +106,11 @@ fun readH(name : String){
     while(now!= lON?.last && now!!.name != name){
         now = now.next
     }
-    if (now!!.name != name){
+    if (now == null){
+        println("Read: not found")
+        return
+    }
+    if (now.name != name){
         println("Read: not found")
     }else {
         println(name + "->" + now.cat)
@@ -116,6 +120,10 @@ fun deleteH(name: String){
     val num = hashFun(name)
     val lON = hashTable[num]
     var now = lON!!.first
+    if (now == null){
+        println("Delete: not found")
+        return
+    }
     while (now != lON.last && now!!.name != name){
         now = now.next
     }

@@ -67,6 +67,10 @@ fun readD(name : String){
 }
 fun deleteD(name: String){
     var now = listOfNode.first
+    if (now == null){
+        println("Delete: not found")
+        return
+    }
     while (now != listOfNode.last && now!!.name != name){
         now = now.next
     }

@@ -1,4 +1,4 @@
-data class Catt(val color: String, val age: Int, val weight: Int)
+data class Catt(val color: String, val age: Int, val weight: Float)
 data class Node(val name : String, val cat : Catt, var prev : Node?, var next : Node?)
 data class ListOfNode(var first : Node?, var last : Node?)
 val listOfNode = ListOfNode(null, null)
@@ -14,7 +14,7 @@ fun main(){
                 val name = masLast[0]
                 val color = masLast[1]
                 val age = masLast[2].toInt()
-                val weight = masLast[3].toInt()
+                val weight = masLast[3].toFloat()
                 createD(name, color, age, weight)
             }
             "readall" -> {
@@ -31,7 +31,7 @@ fun main(){
 
 }
 
-fun createD(name : String, color : String, age : Int, weight : Int){
+fun createD(name: String, color: String, age: Int, weight: Float){
     val cat = Catt(color, age, weight)
     if (listOfNode.first == null) {
         val node = Node(name, cat, null, null)
